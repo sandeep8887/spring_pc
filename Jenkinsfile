@@ -8,8 +8,12 @@ pipeline {
         	image 'maven:3.5.0'
         }
       }
-      steps {
-      	sh 'mvn -f /var/jenkins_home/workspace/test_declarative/pom.xml clean install'
+      steps('Build') {
+      	steps {
+	  dir ("/var/jenkins_home/workspace/test_maven"){
+	  sh 'mvn clean install'
+	  }
+	}
       }
     }
      stage('Docker Build') {
