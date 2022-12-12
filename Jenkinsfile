@@ -9,7 +9,7 @@ pipeline {
         }
       }
       steps {
-      	sh 'mvn clean install'
+      	sh 'mvn -f /var/jenkins_home/workspace/test_declarative/pom.xml clean install'
       }
     }
      stage('Docker Build') {
