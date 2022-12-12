@@ -9,7 +9,7 @@ pipeline {
         }
       }
       steps {
-      	sh 'mvn  -f /etc/docker/jenkins/spring_pc/pom.xml clean install'
+      	sh 'mvn clean install'
       }
     }
      stage('Docker Build') {
