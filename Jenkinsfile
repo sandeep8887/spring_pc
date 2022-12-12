@@ -9,13 +9,13 @@ pipeline {
         }
       }
       steps {
-      	sh 'mvn clean install'
+      	sh 'mvn  -f /etc/docker/jenkins/spring_pc/pom.xml clean install'
       }
     }
      stage('Docker Build') {
     	agent any
       steps {
-      	sh 'docker build -t shanem/spring-petclinic:latest .'
+      	sh ' sudo docker build -t shanem/spring-petclinic:latest .'
       }
     }
   }
