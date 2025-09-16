@@ -10,7 +10,7 @@ pipeline {
       }
       steps('Build') {
       	steps {
-	  dir ("/var/jenkins_home/workspace/test_maven"){
+	  dir ("/var/lib/jenkins/workspace/test_maven"){
 	  sh 'mvn clean install'
 	  }
 	}
@@ -19,7 +19,7 @@ pipeline {
      stage('Docker Build') {
     	agent any
       steps {
-      	sh ' sudo docker build -t shanem/spring-petclinic:latest .'
+      	sh ' sudo docker build -t 745039059504.dkr.ecr.ap-south-1.amazonaws.com/testapp:latest .'
       }
     }
   }
