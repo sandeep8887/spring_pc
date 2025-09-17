@@ -1,6 +1,12 @@
-FROM anapsix/alpine-java
+# Use the official NGINX image as the base
+FROM nginx:alpine
+
+# Dummy label for identification
 LABEL maintainer="sandeep@gmail.com"
-COPY /target/spring-petclinic-1.5.1.jar /home/spring-petclinic-1.5.1.jar
-CMD ["java","-jar","/home/spring-petclinic-1.5.1.jar"]
+LABEL purpose="ECR push test"
 
+# Optionally add a basic index.html (not required)
+RUN echo "ECR Push Test - NGINX" > /usr/share/nginx/html/index.html
 
+# Expose the default NGINX port
+EXPOSE 80
