@@ -5,6 +5,8 @@ FROM nginx:alpine
 LABEL maintainer="sandeep@gmail.com"
 LABEL purpose="ECR push test"
 
+COPY html/index.html /usr/share/nginx/html/
+
 # Optionally add a basic index.html (not required)
 RUN echo "ECR Push Test - NGINX" > /usr/share/nginx/html/index.html
 
